@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404 - ¡Stitch está atacando!</title>
+    <title>Error 404 - ¡Stitch está atacando! </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,6 @@
             overflow: hidden;
             position: relative;
         }
-
         .scene {
             position: relative;
             width: 100%;
@@ -32,7 +31,6 @@
             justify-content: center;
             align-items: center;
         }
-
         #error-code {
             font-family: 'Fredoka One', cursive;
             font-size: 15rem;
@@ -41,12 +39,10 @@
             transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
             z-index: 10;
         }
-
         #title-text, #paragraph-text {
             transition: transform 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045), opacity 0.5s;
             z-index: 10;
         }
-
         #title-text {
             font-family: 'Fredoka One', cursive;
             font-size: 2.5em;
@@ -55,14 +51,12 @@
             margin-top: -40px;
             margin-bottom: 20px;
         }
-
         #paragraph-text {
             font-size: 1.2em;
             color: #c5c6c7;
             max-width: 500px;
             text-align: center;
         }
-
         #stitch-container {
             position: absolute;
             width: 150px;
@@ -72,23 +66,19 @@
             /* Inicia fuera de la pantalla */
             transform: translateX(-200vw);
         }
-
         /* Clases de destrucción */
         .cracked {
             transform: rotate(-15deg) skew(-10deg, -5deg) scale(0.9);
             opacity: 0.5;
         }
-
         .fallen {
             transform: translateY(150vh) rotate(120deg) !important;
             opacity: 0 !important;
         }
-
         .shattered {
             transform: translateY(150vh) rotate(-90deg) scale(0.5) !important;
             opacity: 0 !important;
         }
-
         @media (max-width: 768px) {
             #error-code {
                 font-size: 10rem;
@@ -96,22 +86,29 @@
             #title-text {
                 font-size: 2em;
             }
-             #paragraph-text {
+            #paragraph-text {
                 font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
-
     <div class="scene">
         <h1 id="error-code">404</h1>
         <h2 id="title-text">¡ALGO SALIÓ MAL!</h2>
         <p id="paragraph-text">Parece que la página estaba aquí, pero... un experimento genético azul y caótico la encontró primero.</p>
         
+        <!-- Elementos añadidos -->
+        <div class="mt-8 w-full max-w-xs flex flex-col items-center space-y-4 z-10">
+            <input type="password" placeholder="Contraseña... si pudieras escribir" disabled class="bg-gray-800 border-2 border-purple-500 text-white placeholder-gray-500 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 cursor-not-allowed">
+            <button class="bg-cyan-500 hover:bg-cyan-600 text-black font-bold py-2 px-4 rounded-lg shadow-lg shadow-cyan-500/50 transition-all duration-300">
+                Intentar de nuevo
+            </button>
+        </div>
+        
         <div id="stitch-container">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- SVG de Stitch (mismo que la versión rebelde) -->
+                <!-- SVG de Stitch -->
                 <path d="M 60,85 C 20,95 5,50 30,30 C 40,50 50,70 60,85 Z" fill="#00a8ff"/><path d="M 55,80 C 35,85 22,55 35,40 C 40,55 48,70 55,80 Z" fill="#80d4ff"/><path d="M 140,85 C 180,95 195,50 170,30 C 160,50 150,70 140,85 Z" fill="#00a8ff"/><path d="M 145,80 C 165,85 178,55 165,40 C 160,55 152,70 145,80 Z" fill="#80d4ff"/><path d="M 50,100 C 50,160 150,160 150,100 C 150,60 125,50 100,50 C 75,50 50,60 50,100 Z" fill="#00a8ff"/><path d="M 70,80 C 60,115 90,125 100,110 C 90,120 75,110 70,80 Z" fill="#80d4ff"/><path d="M 130,80 C 140,115 110,125 100,110 C 110,120 125,110 130,80 Z" fill="#80d4ff"/><circle cx="80" cy="95" r="12" fill="#0b0b0b"/><circle cx="120" cy="95" r="12" fill="#0b0b0b"/><ellipse cx="100" cy="125" rx="18" ry="12" fill="#00334d"/>
             </svg>
         </div>
@@ -143,7 +140,7 @@
                 setTimeout(() => {
                     stitch.style.transform = `translateX(${title.offsetLeft}px) translateY(${title.offsetTop}px) rotate(-20deg) scale(1)`;
                 }, 3000);
-                 setTimeout(() => {
+                setTimeout(() => {
                     title.classList.add('fallen');
                 }, 3500);
 
@@ -151,7 +148,7 @@
                 setTimeout(() => {
                     stitch.style.transform = `translateX(${paragraph.offsetLeft + paragraph.offsetWidth / 2}px) translateY(${paragraph.offsetTop}px) rotate(15deg) scale(1.1)`;
                 }, 4000);
-                 setTimeout(() => {
+                setTimeout(() => {
                     paragraph.classList.add('shattered');
                 }, 4500);
 
@@ -166,6 +163,5 @@
             destructionSequence();
         };
     </script>
-
 </body>
 </html>
